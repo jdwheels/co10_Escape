@@ -4,8 +4,9 @@ import shutil
 import subprocess
 from datetime import datetime
 
-print("Loading config...") 
-with open('Configs/config.json') as json_data_file:
+print("Loading config...")
+config_file = os.getenv('BUILD_CONFIG', 'Configs/config.json')
+with open(config_file) as json_data_file:
     data = json.load(json_data_file)
 mods = data['Mods'];
 islands = data['Islands']
